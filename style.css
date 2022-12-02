@@ -104,6 +104,9 @@ button img{
         height: 25px;
         width: 25px;
     }
+    button img{
+        width: 100%;
+    }
 }
 
 
