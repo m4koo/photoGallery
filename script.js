@@ -26,9 +26,9 @@ function openPic(i){
 
 function previewHTML(i, prev, next){
     document.getElementById('imgPreview').innerHTML = `
-    <button class="buttons" onclick='openPic(${prev})'><</button>
+    <button class="buttons" onclick='openPic(${prev})'><img src='img/chevron_left.svg'></button>
     <img src='img/${images[i]}.jpg' class="img">
-    <button class="buttons" onclick='openPic(${next})'>></button>
+    <button class="buttons" onclick='openPic(${next})'><img src='img/chevron_right.svg'></button>
     `
 }
 

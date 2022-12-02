@@ -16,6 +16,7 @@ h1{
     z-index: -2;
     background: url(img/bg.svg);
     background-size: cover;
+    backdrop-filter: blur(1px);
 }
 
 #photoContent{
@@ -78,11 +79,17 @@ button{
     /**/
     position: absolute;
     left: 5%;
+    display: grid;
+    place-items: center;
 }
 
 button.buttons:last-child{
     left: unset;
     right: 5%;
+}
+
+button img{
+    height: 60%;
 }
 
 
