@@ -1,4 +1,4 @@
-let images = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8', 'img9', 'img10'];
+let images = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8', 'img9', 'img10',  'img11', 'img12', 'img13', 'img14', 'img15', 'img16'];
 
 function load() {
     let photos = document.getElementById('photos');
@@ -10,9 +10,8 @@ function load() {
     }
 }
 
-
 function openPic(i){
-    document.getElementById('photoContent').innerHTML = '';
+    document.getElementById('photos').innerHTML = '';
     let prev = i-1;
     let next = i+1;
     if (prev < 0){
@@ -21,26 +20,23 @@ function openPic(i){
     if(next >= images.length){
         next = 0;
     }
+    previewHTML(i, prev, next);
+    document.getElementById('imgPreview').setAttribute('onclick', 'closePic(event)')
+}
 
+function previewHTML(i, prev, next){
     document.getElementById('imgPreview').innerHTML = `
-    <button onclick='openPic(${prev})'><</button>
-    <img src='img/${images[i]}.jpg'>
-    <button onclick='openPic(${next})'>></button>
+    <button class="buttons" onclick='openPic(${prev})'><</button>
+    <img src='img/${images[i]}.jpg' class="img">
+    <button class="buttons" onclick='openPic(${next})'>></button>
     `
-    bgClose();
 }
 
-function bgClose(){
-    let bg = document.getElementById('bg');
-    bg.setAttribute('onclick', 'test()');
-}
-
-function closePic(){
-    // document.getElementById('imgPreview').innerHTML = '';
-    // load();
-
-}
-
-function test(){
-    // document.getElementById('bg').style.backgroundColor = '#FF0000'
+function closePic(e){
+    let preview = document.getElementById('imgPreview')
+    if (e.target.id == "imgPreview"){
+        preview.innerHTML = '';
+        preview.removeAttribute('onclick')
+        load();
+    }
 }
